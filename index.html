@@ -2,90 +2,293 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title> &#127829; Pizzeria Margherita</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pizzeria Margherita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="naw">
-        <div class="logotext"><a class="text">Najlepsza pizza w mieście!</a></div>
-        <div class="logo"><a href="index.html"><img src="logo.png" alt="logo"></a></div>
+
+    <div class="navbar">
+        <p>Najlepsza <a class="pom">pizza</a> w mieście!</p>
+        <a href=""><img src="zdjecia/logo.png" alt="logo" id="logo"></a>
     </div>
 
 
-<div class="main">
-    <div class="center">
-        <table border="0" cellpadding="20" cellspacing="0">
+
+    <div class="main">
+        <div class="lewy">
+            <p class="napis">U nas <a class="pom">zamówisz</a> pizze z dowozem!</p>
+            <p class="oblicz"><a onClick="wysuwanie()" class="obl-txt">Oblicz koszt dostawy!</a></p>
+            <p id="kontakt">
+                <a class="telefon"><i class="fas fa-mobile-alt"></i> +48 123 456 789<br></a>
+                <a class="adres"><i class="fas fa-street-view"></i> Sosnowiec, ul.&nbsp;Jagiellońska&nbsp;9<br></a>
+                <a class="adres"><i class="fas fa-envelope"></i> adres.mail@onet.pl<br></a>
+            </p>
+            <p id="liczenie" class="liczenie">
+                Podaj liczbe kilometrow od Pizzeri: <input id="odleglosc" type="number"><br>
+                <button id="guzik-licz">Sprawdź!</button>
+                <i onClick="wygasz()" class="fas fa-times"></i><br>
+                <p id="wynik"></p>
+                
+            </p>
+        </div>
+
+
+
+        <div class="srodkowy">
+            <p class="promocje">Aktualne <a class="pom">Promocje</a></p>
+ 
+ <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="zdjecia/s1.jpeg" id="zdj1">
+          <div class="text">Pizza z jajkiem za jedyne 25zł</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="zdjecia/s2.jpeg" id="zdj2">
+          <div class="text">2 pizze w cenie 1</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="zdjecia/s3.jpeg" id="zdj3">
+          <div class="text">3 pizzei każda za 16,99zł</div>
+        </div>
+      </div>
+      
+
+
+
+      
+        </div>
+
+
+        <div class="prawy"><p>Sprawdź <a class="pom">ofertę</a></p>
+            <ol>
+                <li><a class="linki" href="#pica"> Pizza</a></li>
+                <li><a class="linki" href="#lasagne"> Lasagne</a></li>
+                <li><a class="linki" href="#salatki"> Sałatki</a></li>
+                <li><a class="linki" href="#napoje"> Napoje</a></li>
+            </ol>
+        </div>
+    </div>
+
+
+    <div class="srodkowy-nizej" id="srodkowy-nizej">
+        <div class="tlo-tab">
+        <table border="0" cellpadding="10" cellspacing="1" id="pica">
             <tr>
+                <td>Lp</td>
                 <td>Nazwa</td>
-                <td>składniki</td>
-                <td>Mała (Ø40cm)</td>
-                <td>Duża (Ø80cm)</td>
+                <td>Mała</td>
+                <td>Średnia</td>
+                <td>Duża</td>
             </tr>
             <tr>
-                <td>PEPPERONI</td>
-                <td>salami, cebula, sos pomidorowy</td>
-                <td id="1" class="cena" onclick="aktywne(1)">22,90zł</td>
-                <td id="2" class="cena" onclick="aktywne(2)">47,60zł</td>
+                <td>1</td>
+                <td>
+                    <p class="nazwa">pizza CAPRICIOSA</p>
+                    <p class="opis">szynka, pieczarki, sos pomidorowy</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('29.70','pizza CAPRICIOSA (mała)')">29,70 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('35.80','pizza CAPRICIOSA (średnia)')">35,80 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('49.80','pizza CAPRICIOSA (duża)')">49,80 zł</a></td>
             </tr>
             <tr>
-                <td>HAWAJSKA </td>
-                <td> szynka, ananas, sos pomidorowy </td>
-                <td id="3" class="cena" onclick="aktywne(3)">23,40zł</td>
-                <td id="4" class="cena" onclick="aktywne(4)">56,80zł</td>
+                <td>2</td>
+                <td>
+                    <p class="nazwa">pizza KEBAB </p>
+                    <p class="opis"> kurczak gyros, cebula, sos Gyros </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('35.60','pizza KEBAB (mała)')">35,60 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('42.40','pizza KEBAB (średnia)')">42,40 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('56.40','pizza KEBAB (duża)')">56,40 zl</a></td>
             </tr>
             <tr>
-                <td>PRIMAVERA </td>
-                <td>papryka kolorowa, czarne oliwki, sos pomidorowy </td>
-                <td id="5" class="cena" onclick="aktywne(5)">24,70zł</td>
-                <td id="6" class="cena" onclick="aktywne(6)">54,40zł</td>
+                <td>3</td>
+                <td>
+                    <p class="nazwa">pizza PEPERONI  </p>
+                    <p class="opis">salami, cebula, sos pomidorowy </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('30.20','pizza PEPERONI (mała)')">30,20 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('35.60','pizza PEPERONI (średnia)')">35,60 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('49.60','pizza PEPERONI (duża)')">49,60 zł</a></td>
             </tr>
             <tr>
-                <td>FUNGHI </td>
-                <td>pieczarki, sos pomidorowy</td>
-                <td id="7" class="cena" onclick="aktywne(7)">20,10zł</td>
-                <td id="8" class="cena" onclick="aktywne(8)">35,50zł</td>
+                <td>4</td>
+                <td>
+                    <p class="nazwa"> pizza HAWAJSKA</p>
+                    <p class="opis"> szynka, ananas, sos pomidorowy </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('32.90','pizza HAWAJSKA (mała)')">32,90 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('39.40','pizza HAWAJSKA (średnia)')">39,40 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('53.40','pizza HAWAJSKA (duża)')">53,40 zł</a></td>
             </tr>
             <tr>
-                <td>MIĘSNA </td>
-                <td>mięso wołowe (mielone), sos pomidorowy </td>
-                <td id="9" class="cena" onclick="aktywne(9)">23,40zł</td>
-                <td id="10" class="cena" onclick="aktywne(10)">45,50zł</td>
+                <td>5</td>
+                <td>
+                    <p class="nazwa">pizza CARBONARA </p>
+                    <p class="opis"> boczek, cebula, pieczarki (sos śmietankowy) </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('36.20','pizza CARBONARA (mała)')">36,20 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('43.40','pizza CARBONARA (średnia)')">43,40 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('57.40','pizza CARBONARA (duża)')">57,40 zł</a></td>
             </tr>
             <tr>
-                <td>CAPRICIOSA</td>
-                <td>szynka, pieczarki, sos pomidorowy</td>
-                <td id="11" class="cena" onclick="aktywne(11)">24,20zł</td>
-                <td id="12" class="cena" onclick="aktywne(12)">46,20zł</td>
+                <td>6</td>
+                <td>
+                    <p class="nazwa">pizza BARBECUE</p>
+                    <p class="opis"> boczek, kurczak gyros, cebula, sos Barbecue </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('35.40','pizza BARBECUE (mała)')"> 35,40 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('42.20','pizza BARBECUE (średnia)')"> 42,20 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('56.20','pizza BARBECUE (duża)')"> 56,20 zł</a></td>
+            </tr>
+                          
+        </table>
+
+        <br><br><br>
+
+        <table border="0" cellpadding="10" cellspacing="1" id="lasagne">
+            <tr>
+                <td>Lp</td>
+                <td>Nazwa</td>
+                <td>Mała</td>
+                <td>Duża</td>
             </tr>
             <tr>
-                <td>BARBADOS </td>
-                <td>kurczak gyros, ananas, sos Jalapeno </td>
-                <td id="13" class="cena" onclick="aktywne(13)">27,30zł</td>
-                <td id="14" class="cena" onclick="aktywne(14)">59,20zł</td>
+                <td>7</td>
+                <td>
+                    <p class="nazwa">lasagne WEGAŃSKA</p>
+                    <p class="opis">szpinak, gorgonzola</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('21.30','lasagne WEGAŃSKA (mała)')">21,30 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('35.80','lasagne WEGAŃSKA (średnia)')">35,80 zł</a></td>
             </tr>
             <tr>
-                <td>TONNO </td>
-                <td>tuńczyk, oliwki czarne, kukurydza (sos śmietanowy)</td>
-                <td id="15" class="cena" onclick="aktywne(15)">25,90zł</td>
-                <td id="16" class="cena" onclick="aktywne(16)">56,30zł</td>
-            </tr>      
-                                                                             
+                <td>8</td>
+                <td>
+                    <p class="nazwa">lasagne OSTRA</p>
+                    <p class="opis"> papryczka jalapeno, sos chili </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('35.60','lasagne OSTRA (mała)')">35,60 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('42.40','lasagne OSTRA (średnia)')">42,40 zł</a></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>
+                    <p class="nazwa">lasagne SZEFA</p>
+                    <p class="opis"> tajemnica firmowa </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('33.60','lasagne SZEFA (mała)')">33,60 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('45.40','lasagne SZEFA (średnia)')">45,40 zł</a></td>
+            </tr>           
+        </table>
+
+        <br><br><br>
+
+        <table border="0" cellpadding="10" cellspacing="1" id="salatki">
+            <tr>
+                <td>Lp</td>
+                <td>Nazwa</td>
+                <td>Mała</td>
+                <td>Duża</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>
+                    <p class="nazwa">sałatka CEZAR</p>
+                    <p class="opis">kurczak, ser, pomidory, ogórki</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('11.30','sałatka CEZAR (mała)')">11,30 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('25.80','sałatka CEZAR (średnia)')">25,80 zł</a></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>
+                    <p class="nazwa">sałatka GYROS</p>
+                    <p class="opis"> kurczak, cebula, por, kukurydza</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('35.60','sałatka GYROS (mała)')">35,60 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('42.40','sałatka GYROS (średnia)')">42,40 zł</a></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>
+                    <p class="nazwa">sałatka MEKSYKAŃSKA</p>
+                    <p class="opis"> por, kukurydza, papryka, chili </p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('33.60','lasagne MEKSYKAŃSKA (mała)')">33,60 zł</a></td>
+                <td><a class="cena" onclick="dodawanie('45.40','lasagne MEKSYKAŃSKA (średnia)')">45,40 zł</a></td>
+            </tr>           
+        </table>
+
+
+        <br><br><br>
+
+        <table border="0" cellpadding="10" cellspacing="1" id="napoje">
+            <tr>
+                <td>Lp</td>
+                <td>Nazwa</td>
+                <td>Cena</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>
+                    <p class="nazwa">Coca Cola</p>
+                    <p class="opis">0,5l</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('5.20','Coca Cola')">5,20 zł</a></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>
+                    <p class="nazwa">Mirinda</p>
+                    <p class="opis"> 0,3l</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('6.10','Mirinda')">6,10 zł</a></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>
+                    <p class="nazwa">Sprite</p>
+                    <p class="opis"> 0,5l</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('5.20','Sprite')">5,20 zł</a></td>
+            </tr> 
+            <tr>
+                <td>16</td>
+                <td>
+                    <p class="nazwa">Herbata</p>
+                    <p class="opis"> 1 Dzbanek</p>
+                </td>
+                <td><a class="cena" onclick="dodawanie('10.50','Herbata')">10,50 zł</a></td>
+            </tr>          
         </table>
     </div>
 
-
-
-    <div class="prawy">
-        <ul class="lista">
-            <li><a href="index.html">Menu</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="opinie.html">Opinie</a></li>
-        </ul>
+    <div class="wynikowemenu">
+        <div id="zamowienie"></div>
+        <div id="suma">
+            <div id="zaplata"></div> 
+        </div>
     </div>
 </div>
+
+
+
+
+
+
+    <script src="main.js"></script>
 </body>
 </html>

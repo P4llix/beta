@@ -1,129 +1,356 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #2e86de;
-    
+    background-image: linear-gradient(to left, #0F2027, #203A43, #2C5364);
+    font-family: 'Comfortaa', cursive;
+    overflow-x: hidden;
+    transition: 0.3s;
 }
 
-.naw{
-    height: 15vh;
-    background-color: #222f3e;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-}
-
-.naw .logo img{
-    height: 13vh;
-    float: right;
-    position: absolute;
-    transform: translate(34vw,-10vh);
-}
-
-.naw .logo{
-    width: 50%;
-    float: right;
-}
-
-.naw .logotext{
-    font-size: 500%;
-    font-family: 'Amatic SC', cursive;
-    color: #ee5253;
-    width: 50%;
-    margin-left: 2%;
-    
-}
-
-.main{
-    background-image: url(1.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 85vh;
-}
-
-
-.main .prawy{
-    text-align: center;
+a:link{
+    text-decoration: none;
     color: white;
-    width: 30%;
-    float: right;
-    font-size: 22px;
-    line-height: 7vh;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    outline: 2px solid black;
 }
 
-.lista li{
-    list-style: none;
+/* navbar */
+.navbar{
+    width: 100vw;
+    background-color: #222f3e;
+    height: 13vh;
     
 }
 
-.lista li a:any-link{
+.navbar p{
+    padding: 0;
+    margin: 0;
+    font-family: 'Kalam', cursive;
+    color: white;
+    font-size: 300%;
+    text-align: right;
+    padding: 2% 5%;
+}
+
+#logo{
+    width: 5vw;
+    position: absolute;
+    transform: translate(5vw, -13vh);
     cursor: pointer;
-    color:  white;
+}
+
+.pom{
+    color: #d35400;
+}
+
+
+
+/* main */
+.main{
+    background: url(zdjecia/1.jpeg) center center fixed;
+    background-size: cover;
+    height: 87vh;
+}
+
+
+    /* lewy */
+.lewy{
+    width: 20%;
+    float: left;
+    background-color: rgba(10, 10, 10, 0.8);
+    color: white;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lewy .napis{
+    margin-bottom: 5vh;
+}
+
+.lewy p{
+    margin: 0;
+    margin-top: 2vh;
+    font-size: 25px;
+    text-align: center;
+}
+
+.lewy #kontakt{
+    margin-top: 5vh;
+    font-size: 17px;
+    line-height: 4vh;
+    transition: 0.4s;
+}
+
+.lewy .oblicz{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.lewy .oblicz a{
+    cursor: pointer;
+}
+
+.lewy .liczenie{
+    padding-top: 10vh;
+    font-size: 17px;
+    overflow: hidden;
+    transition: .5s;
+    opacity: 0;
+    display: inline-block;
+}
+
+.lewy .liczenie input{
+    border: none;
+    border-radius: 15px;
+    padding: 2%;
+    margin-top: 2%;
+}
+
+.lewy .liczenie button{
+    border: none;
+    height: 7vh;
+    width: 12vw;
+    margin-top: 4vh;
+    background-color: black;
+    color: #d35400;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    border: 1px solid #d35400;
+    transition: 0.4s;
+}
+
+.lewy .liczenie button:hover{
+    background-color: rgba(10, 10, 10, 0);
+
+}
+
+
+/* prawy */
+.prawy{
+    width: 20%;
+    float: right;
+    background-color: rgba(10, 10, 10, 0.8);
+    color: white;
+    height: 100%;
+}
+
+.prawy p{
+    margin: 0;
+    margin-top: 2vh;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+.prawy ol{
+    line-height: 7vh;
+    font-size: 20px;
+}
+
+.prawy .linki:link{
+    color: white;
+    cursor: pointer;
+}
+
+.prawy ol li a{
+    color: white;
     text-decoration: none;
 }
 
-.lista li a{
-    transition: 0.6s;
-    border-bottom-width: 0px;
+/* środkowy */
+
+
+.srodkowy{
+    width: 60%;
+    float: left;
+    color: white;
+    height: 100%;
 }
 
-.lista li a:hover{
-    border-bottom: 1px solid white;
-    padding-left: 12%;  
-    padding-right: 12%;  
-}
-            
-.main .center{
-    width: 70%;
-    float: left;
-    font-size: 25px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
+.srodkowy .promocje{
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    margin: 4% 5% 3%;
+    padding: 50px 0px 50px;
     text-align: center;
+    font-size: 35px;
+    background-color: rgba(10, 10, 10, 0.8);
+}
+
+
+
+
+
+@media only screen and (min-width: 1201px) {
+    .lewy {
+        flex: 2; /* powiększenie 2/12 */
+        order: 1;
+    } 
+    .srodkowy {
+        flex: 7; /* powiększenie 7/12 */
+        order: 2;
+    } 
+    .prawy {
+        flex: 3; /* powiększenie 3/12 */
+        order: 3;
+    }
+}
+
+
+
+
+
+#zdj1, #zdj2, #zdj3{
+    width: 40vw;
+    height: 50vh;
+    
+}
+
+
+.slideshow-container {
+    width:40vw;
+    position: relative;
+    margin: auto;
+    border: 1px solid black;
+    height: 50vh;
+}
+
+.mySlides {
+    
+    display: none;
+    text-align: center;
+}
+
+.text {
+    color: white;
+    background-color: rgba(10, 10, 10, 0.8);
+    font-size: 30px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px 10px;
+}
+
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+/* animacje */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: 0.2}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: 0.2};
+    to {opacity: 1}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MENU  */
+
+
+.tlo-tab{
+    background-color: rgba(10, 10, 10, 0.8);
+    width:50vw;
+    position: relative;
+    margin: auto;
+    margin-top: 2vh;
+}
+
+.tlo-tab table{
+
+    margin: auto;
+    position: relative;
+}
+
+.nazwa{
+    font-size: 20px;
+}
+
+.opis{
+    font-size: 15px;
+    font-style: italic;
+}
+
+table{
+    font-size: 18px;
 }
 
 .cena{
     cursor: pointer;
-    user-select: none;
+    transition: .2s;
 }
 
-.center textarea{
-    border: none;
-    border-radius: 15px;
-    padding: 1%;
-    background-color: #222f3e;
-    color: white;
-    resize:none;
-    font-family: Arial;
+.cena:hover{
+    color: #d35400;
 }
 
-.center input{
-    font-family: Arial;
-    border: none;
-    border-radius: 15px;
-    padding: 1%;
-    background-color: #222f3e;
-    color: white;
-    resize:none;
+
+#suma{
+    position: fixed;
+    bottom: 40px;
+    border-top: 1px solid white;
+    padding-right: 9vw;
+    width: 20%;
+    padding-top: 2vh;
+    transform: translateY(10vh);
 }
 
-.center button{
-    border: none;
-    width: 10vw;
-    padding: 1%;
-    background-color: #ee5253;
-    color: black;
-    font-size: 20px
+
+
+#suma #zaplata{
+    width:  50%;
+    float: right;
+    z-index: 1;
+
 }
 
-.center #opinie{
-    height: 40vh;
-    width: 70vw;
-    overflow: auto;
+#zamowienie{
+    line-height: 5vh;
+    overflow: scroll;
     overflow-x: hidden;
+    overflow-y: 100%;
+    height: 70vh;
+}
+
+
+.srodkowy-nizej{
+    background: url(zdjecia/tlo.jpeg);
+    background-size: cover;
+    color: white;
+    transform: translateY(-2vh);
+    padding-top: 3vh;
+    padding-bottom: 7vh;
+}
+
+.wynikowemenu{
+    position: fixed;
+    width: 15vw;
+    transform: translate(1vw, -230vh);
+    background-color: rgba(10, 10, 10, 0.8);
 }
